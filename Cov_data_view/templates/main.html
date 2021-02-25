@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>疫情监控</title>
+		<script src="../static/js/jquery.js"></script>
+		<script src="../static/js/echarts.min.js"></script>
+		<script src="../static/js/china.js"></script>
+		<script src="../static/js/worldcloud.js"></script>
+        <script src="../static/js/d3js.org_d3.v5.min.js"></script>
+
+		<link href="../static/css/main.css" rel="stylesheet" />
+        <link href="../static/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="../static/css/stylesheet.css">
+	</head>
+	<body>
+
+        <div >
+                <button class="my_button1" id="bt1" name="#UI1"  onclick="set_vis(this)" type="button">中国地区</button>
+
+                <button class="my_button2" id="bt2" name="#UI2" onclick="set_vis(this)" type="button">疫情资讯</button>
+
+                <button class="my_button3" id="bt3" name="#UI3" onclick="set_vis(this)" type="button">疫情动态排行</button>
+        </div>
+        <div id = "UI1" style="visibility:visible; background: #333" >
+            <div id="title">全国疫情实时跟踪</div>
+            <div id="time"></div>
+            <div id="l1"></div>
+            <div id="l2"></div>
+            <div id="c1">
+                <div class="num">
+                    <h1></h1>
+                </div>
+                <div class="num">
+                    <h1></h1>
+                </div>
+                <div class="num">
+                    <h1></h1>
+                </div>
+                <div class="num">
+                    <h1></h1>
+                </div>
+                <div class="txt">
+                    <h2>累积确诊</h2>
+                </div>
+                <div class="txt">
+                    <h2>剩余疑似</h2>
+                </div>
+                <div class="txt">
+                    <h2>累积治愈</h2>
+                </div>
+                <div class="txt">
+                    <h2>累积死亡</h2>
+                </div>
+
+
+		</div>
+
+		<div id="c2"></div>
+            <div id="update_time" style="color: white; top:35%; left: 40%;position: absolute;  ">
+                    <h2 style=" font-size: 22px"></h2>
+                </div>
+		<div id="r1"></div>
+		<div id="r2"></div>
+
+
+
+
+        </div>
+
+        <div id = "UI2" style="visibility:visible; display: none; background: #333; width: 400px; height:1000px;" >
+            <div style="width: 30%; top: 120px; left:2.5%;position: absolute;">
+                <span class="label label-info" style="margin: 0; top:-6% ;position:relative;">最新资讯</span>
+                <div class="list-group" id="group1" style="font-size: 17px">
+                  <a href="#" class="list-group-item list-group-item-info">- -</a>
+                  <a href="#" class="list-group-item list-group-item-info">- -</a>
+                  <a href="#" class="list-group-item list-group-item-info">- -</a>
+                  <a href="#" class="list-group-item list-group-item-info">- -</a>
+                    <a href="#" class="list-group-item list-group-item-info">- -</a>
+                  <a href="#" class="list-group-item list-group-item-info">- -</a>
+                  <a href="#" class="list-group-item list-group-item-info">- -</a>
+                  <a href="#" class="list-group-item list-group-item-info">- -</a>
+                    <a href="#" class="list-group-item list-group-item-info">- -</a>
+                  <a href="#" class="list-group-item list-group-item-info">- -</a>
+                  <a href="#" class="list-group-item list-group-item-info">- -</a>
+                  <a href="#" class="list-group-item list-group-item-info">- -</a>
+                    <a href="#" class="list-group-item list-group-item-info">- -</a>
+                  <a href="#" class="list-group-item list-group-item-info">- -</a>
+                  <a href="#" class="list-group-item list-group-item-info">- -</a>
+                  <a href="#" class="list-group-item list-group-item-info">- -</a>
+                    <a href="#" class="list-group-item list-group-item-info">- -</a>
+                  <a href="#" class="list-group-item list-group-item-info">- -</a>
+                  <a href="#" class="list-group-item list-group-item-info">- -</a>
+                  <a href="#" class="list-group-item list-group-item-info">- -</a>
+
+
+                </div>
+
+
+
+            </div>
+
+            <div style="width: 30%; top: 120px; right:35%;position: absolute;">
+                <span class="label label-success" style="margin: 0; top:-6% ;position:relative;">海外资讯</span>
+                <div class="list-group"  id="group2" style="font-size: 17px">
+                  <a href="#" class="list-group-item list-group-item-success">- -</a>
+                  <a href="#" class="list-group-item list-group-item-success">- -</a>
+                    <a href="#" class="list-group-item list-group-item-success">- -</a>
+                  <a href="#" class="list-group-item list-group-item-success">- -</a>
+                    <a href="#" class="list-group-item list-group-item-success">- -</a>
+                  <a href="#" class="list-group-item list-group-item-success">- -</a>
+                    <a href="#" class="list-group-item list-group-item-success">- -</a>
+                  <a href="#" class="list-group-item list-group-item-success">- -</a>
+                    <a href="#" class="list-group-item list-group-item-success">- -</a>
+                  <a href="#" class="list-group-item list-group-item-success">- -</a>
+                    <a href="#" class="list-group-item list-group-item-success">- -</a>
+                  <a href="#" class="list-group-item list-group-item-success">- -</a>
+                    <a href="#" class="list-group-item list-group-item-success">- -</a>
+                  <a href="#" class="list-group-item list-group-item-success">- -</a>
+                    <a href="#" class="list-group-item list-group-item-success">- -</a>
+                  <a href="#" class="list-group-item list-group-item-success">- -</a>
+                    <a href="#" class="list-group-item list-group-item-success">- -</a>
+                  <a href="#" class="list-group-item list-group-item-success">- -</a>
+                    <a href="#" class="list-group-item list-group-item-success">- -</a>
+                  <a href="#" class="list-group-item list-group-item-success">- -</a>
+                </div>
+            </div>
+
+            <div style="width: 30%; top: 120px; right:2.5%;position: absolute;">
+                <span class="label label-warning" style="margin: 0; top:-6% ;position:relative;">疫情辟谣</span>
+                <div class="list-group"  id="group3" style="font-size: 17px">
+
+                  <a href="#" class="list-group-item list-group-item-warning">- -</a>
+                  <a href="#" class="list-group-item list-group-item-warning">- -</a>
+                  <a href="#" class="list-group-item list-group-item-warning">- -</a>
+                  <a href="#" class="list-group-item list-group-item-warning">- -</a>
+                    <a href="#" class="list-group-item list-group-item-warning">- -</a>
+                  <a href="#" class="list-group-item list-group-item-warning">- -</a>
+                  <a href="#" class="list-group-item list-group-item-warning">- -</a>
+                  <a href="#" class="list-group-item list-group-item-warning">- -</a>
+                    <a href="#" class="list-group-item list-group-item-warning">- -</a>
+                  <a href="#" class="list-group-item list-group-item-warning">- -</a>
+                  <a href="#" class="list-group-item list-group-item-warning">- -</a>
+                  <a href="#" class="list-group-item list-group-item-warning">- -</a>
+                    <a href="#" class="list-group-item list-group-item-warning">- -</a>
+                  <a href="#" class="list-group-item list-group-item-warning">- -</a>
+                  <a href="#" class="list-group-item list-group-item-warning">- -</a>
+                  <a href="#" class="list-group-item list-group-item-warning">- -</a>
+                    <a href="#" class="list-group-item list-group-item-warning">- -</a>
+                  <a href="#" class="list-group-item list-group-item-warning">- -</a>
+                  <a href="#" class="list-group-item list-group-item-warning">- -</a>
+                  <a href="#" class="list-group-item list-group-item-warning">- -</a>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div id = "UI3" style="visibility:visible; display: none; background: #333" >
+
+            <input  class="btn btn-success btn-default btn-lg " style=" left:100px;top: 100px;width: 300px" type="file" id="inputfile" name="fileContent" >
+
+
+            <svg width="1400" height="800 "></svg>
+
+
+
+            <div class="Image"  style="background-color: #333333; color:greenyellow;width: 700px;">
+                <span class="label label-default" style="margin: 0; top:-20%; color:greenyellow;position:relative;">csv文件格式</span>
+              <table class="table table-hover ">
+                <tr>
+                <th>name</th>
+                <th>type</th>
+                    <th>value</th>
+                    <th>date</th>
+              </tr>
+              <tr>
+                <td>美国</td>
+                <td>USA</td>
+                  <td>1</td>
+                  <td>20200123</td>
+              </tr>
+                  <tr>
+                <td>美国</td>
+                <td>USA</td>
+                  <td>1</td>
+                  <td>20200124</td>
+              </tr>
+                  <tr>
+
+
+              </table>
+            </div>
+
+
+        </div>
+
+
+
+        <script src="../static/js/config.js"></script>
+        <script src="../static/js/imgs.js"></script>
+        <script src="../static/js/color_ranges.js"></script>
+        <script src="../static/js/visual.js"></script>
+
+
+        <script src="../static/js/ec_center.js"></script>
+		<script src="../static/js/ec_left1.js"></script>
+		<script src="../static/js/ec_left2.js"></script>
+		<script src="../static/js/ec_right1.js"></script>
+		<script src="../static/js/ec_right2.js"></script>
+		<script src="../static/js/controller.js"></script>
+
+
+
+	</body>
+</html>

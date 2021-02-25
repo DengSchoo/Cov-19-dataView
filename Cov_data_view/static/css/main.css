@@ -1,0 +1,204 @@
+body { /*背景样式*/
+	margin: 0;
+	background: #333 !important;
+}
+
+#title {
+	position: absolute;
+	width: 40%;
+	height: 10%;
+	top: 0%;
+	left: 30%;
+	/* background: #666666; */
+	color: white;
+	font-size: 30px; /*字体大小*/
+	display: flex; /*弹性布局 让文字居中*/
+	align-items: center; /*笔直方向居中*/
+	justify-content: center; /*竖直方向居中*/
+
+}
+
+#time { /*时间戳的样式*/
+	position: absolute;
+	/* width: 30%; */
+	height: 10%;
+	top: 2%;
+	right: 2%;
+	color: #FFFFFF;
+	font-size: 30px;
+	/* background: green; */
+}
+
+#c1 { /*中间第一个部分 -- 人数文字展示*/
+	position: absolute;
+	width: 35%;
+	height: 40%;
+	top: 10%;
+	left: 35%;
+	/* background: #777777; */
+
+}
+
+.num { /*c1的数字部分*/
+
+	width: 25%;
+	height: 30%;
+	float: left;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: gold;
+	font-size: 20px;
+}
+.txt {/*c1的文字部分*/
+	top:65%;
+	width: 25%;
+	height: 30%;
+	float: left;
+	font-family: "幼圆";
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 20px;
+	color: white;
+}
+
+
+.my_button1 { /* 按钮美化 */
+	width: 150px; /* 宽度 */
+	height: 40px; /* 高度 */
+	border-width: 0px; /* 边框宽度 */
+	border-radius: 3px; /* 边框半径 */
+	background: #1E90FF; /* 背景颜色 */
+	cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+	outline: none; /* 不显示轮廓线 */
+	font-family: Microsoft YaHei; /* 设置字体 */
+	color: white; /* 字体颜色 */
+	font-size: 17px; /* 字体大小 */
+
+	position: absolute;
+    left: 0px;
+    top: 20px;
+}
+.my_button2:hover { /* 鼠标移入按钮范围时改变颜色 */
+	background: #5599FF;
+}
+
+.my_button2 { /* 按钮美化 */
+	width: 150px; /* 宽度 */
+	height: 40px; /* 高度 */
+	border-width: 0px; /* 边框宽度 */
+	border-radius: 3px; /* 边框半径 */
+	background: #1E90FF; /* 背景颜色 */
+	cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+	outline: none; /* 不显示轮廓线 */
+	font-family: Microsoft YaHei; /* 设置字体 */
+	color: white; /* 字体颜色 */
+	font-size: 17px; /* 字体大小 */
+	position: absolute;
+    left: 170px;
+    top: 20px;
+}
+
+.my_button3 { /* 按钮美化 */
+	width: 150px; /* 宽度 */
+	height: 40px; /* 高度 */
+	border-width: 0px; /* 边框宽度 */
+	border-radius: 3px; /* 边框半径 */
+	background: #1E90FF; /* 背景颜色 */
+	cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+	outline: none; /* 不显示轮廓线 */
+	font-family: Microsoft YaHei; /* 设置字体 */
+	color: white; /* 字体颜色 */
+	font-size: 17px; /* 字体大小 */
+	position: absolute;
+    left: 340px;
+    top: 20px;
+}
+.my_button1:hover { /* 鼠标移入按钮范围时改变颜色 */
+	background: #5599FF;
+}
+
+
+#c2 { /*中间第二个部分 -- 中国地图*/
+
+	position: absolute;
+	width: 35%;
+	height: 60%;
+	top: 40%;
+	left: 35%;
+	background: #888888;
+}
+
+#l1 {
+	position: absolute;
+	width: 35%;
+	height: 45%;
+	top: 10%;
+	left: 0%;
+	background: #666666;
+}
+
+#l2 {
+
+	position: absolute;
+	width: 35%;
+	height: 45%;
+	top: 55%;
+	left: 0%;
+	background: #777777;
+}
+
+#r1 {
+	position: absolute;
+	width: 30%;
+	height: 45%;
+	top: 10%;
+	right: 0%;
+	background: #666666;
+}
+
+#r2 {
+	position: absolute;
+	width: 30%;
+	height: 45%;
+	top: 55%;
+	right: 0%;
+	background: #777777;
+}
+
+.Image {
+	position: absolute;
+
+	top:20px;
+	right: 30px;
+}
+
+.file {
+    position: absolute;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+	top:100px;
+	left:800px;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+
+}
+.file input {
+    position: absolute;
+    font-size: 500px;
+    opacity: 0;
+
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
